@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiples of 3 or 5</title>
+</head>
+
+<body>
+    <div>
+        <h4>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of
+            these multiples is 23.</h4>
+        <h4>Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+        </h4>
+        <h5>Note: If the number is a multiple of both 3 and 5, only count it once.</h5>
+        <input type="text">
+        <button>Przycisk</button>
+        <div class="answer" style="width: 300px;border: 1px solid black; height: 20px;margin-top:10px"></div>
+    </div>
+
+    <script>
+        const input = document.querySelector("input");
+        const btn = document.querySelector("button");
+        const answer = document.querySelector(".answer");
+
+        btn.addEventListener('click', solution);
+
+        function solution(number) {
+            number = input.value;
+
+            let sum = 0;
+            for (i = 1; number - i > 0; i++)
+                if ((number - i) % 15 == 0) {
+                    sum += number - i;
+                } else if ((number - i) % 5 == 0) {
+                    sum += number - i;
+                } else if ((number - i) % 3 == 0) {
+                    sum += number - i;
+                };
+            answer.textContent = sum;
+        };
+    </script>
+
+
+</body>
+
+</html>

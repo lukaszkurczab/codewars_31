@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Valid Braces</title>
+</head>
+
+<body>
+    <h4>Write a function that takes a string of braces, and determines if the order of the braces is valid. It should
+        return true if the string is valid, and false if it's invalid.</h4>
+    <h4>All input strings will be nonempty, and will only consist of parentheses, brackets and curly braces: ()[]{}.
+    </h4>
+    <h4>A string of braces is considered valid if all braces are matched with the correct brace.</h4>
+    <div>
+        <input type="text">
+        <button>Button</button>
+    </div>
+    <div class="answer" style="width: 300px;border: 1px solid black; height: 20px;margin-top:10px"></div>
+
+    <script>
+        const btn = document.querySelector('button');
+        const input = document.querySelector('input');
+        const answer = document.querySelector(".answer");
+
+        const test = () => {
+            let braces = input.value;
+
+            while (braces.indexOf("{}") != -1 || braces.indexOf("()") != -1 || braces.indexOf("[]") != -1) {
+                braces = braces.replace("{}", "").replace("()", "").replace("[]", "");
+            }
+
+            answer.textContent = (braces.length == 0) ? 'true' : 'false'
+        }
+
+        btn.addEventListener('click', test)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Descending Order</title>
+</head>
+
+<body>
+    <h4>Your task is to make a function that can take any non-negative integer as a argument and return it with its
+        digits in descending order. Essentially, rearrange the digits to create the highest possible number.</h4>
+    <h5>Input: 42145 Output: 54421</h5>
+    <h5>Input: 145263 Output: 654321</h5>
+    <h5>Input: 123456789 Output: 987654321</h5>
+    <input type="text">
+    <button>Button</button>
+    <div class="answer" style="width: 300px;border: 1px solid black; height: 20px;margin-top:10px"></div>
+    <script>
+        const input = document.querySelector("input");
+        const btn = document.querySelector("button");
+        const answer = document.querySelector(".answer");
+
+        function descendingOrder(n) {
+            n = input.value;
+            answer.textContent = (n.split('').sort().reverse().join(''))
+        }
+        btn.addEventListener('click', descendingOrder)
+    </script>
+</body>
+
+</html>

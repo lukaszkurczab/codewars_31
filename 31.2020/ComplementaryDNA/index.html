@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Complementary DNA
+    </title>
+</head>
+<h4>Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for the
+    development and functioning of living organisms.</h4>
+<h4>In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You have function with one side
+    of the DNA (string, except for Haskell); you need to get the other complementary side. DNA strand is never empty or
+    there is no DNA at all (again, except for Haskell).</h4>
+<button class="letter">A</button>
+<button class="letter">T</button>
+<button class="letter">C</button>
+<button class="letter">G</button></br>
+<div class="input" style="width: 300px;border: 1px solid black; height: 20px;margin-top:10px"></div>
+<button id="input">Complete</button>
+<div class="answer" style="width: 300px;border: 1px solid black; height: 20px;margin-top:10px"></div>
+
+<body>
+    <script>
+        const btn = document.querySelectorAll('.letter');
+        const input = document.querySelector('.input');
+        const answerBtn = document.querySelector('#input');
+        const answer = document.querySelector(".answer");
+        let dna = ""
+
+        btn.forEach(btn => {
+            btn.addEventListener('click', (i) => {
+                i = btn.textContent
+                dna = dna + i
+                input.textContent = dna
+            })
+        })
+
+        answerBtn.addEventListener('click', DNAStrand);
+
+        function DNAStrand() {
+            answer.textContent = (
+                dna.split('').map(function (dn) {
+                    if (dn == 'A') {
+                        dna = dn.replace(/A/gi, 'T')
+                    }
+                    else if (dn == 'T') {
+                        dna = dn.replace(/T/gi, 'A')
+                    }
+                    else if (dn == 'G') {
+                        dna = dn.replace(/G/gi, 'C')
+                    }
+                    else { dna = dn.replace(/C/gi, 'G') };
+                    return dna
+                }).join(''));
+            dna = ""
+            input.textContent = dna
+        }</script>
+</body>
+
+</html>
